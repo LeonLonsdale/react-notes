@@ -16,14 +16,16 @@
 
 ## Props
 
-- [Props Intro]
-- [Non-string Props]
-- [Setting Default Prop Values]
-- [Passing Arrays and Objects]
+- [Props Intro](./props.md#props-intro)
+- [Passing Props to Components](./props.md#passing-props-to-components)
+- [Setting Default Prop Values](./props.md#setting-a-default-value-for-a-prop)
+- [Key Prop](./props.md#the-key-prop)
+
+## Using Prop Data
+
 - [Conditionals]
-- [Using props for dynamic styles]
+- [Dynamic styles]
 - [Rendering arrays with Map]
-- [Key Prop]
 
 ## Events
 
