@@ -2,9 +2,9 @@
 
 ## Basics
 
-- [React Intro]
-- [About JSX](./jsx-basics.md)
-- [Basic App Structure](basic-structure.md)
+- [React Intro](./react-intro.md#intro-to-react)
+- [About JSX](./react-intro.md#intro-to-jsx)
+- [Basic App Structure](./react-intro.md#basic-react-structure)
 
 ## JSX
 
