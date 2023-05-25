@@ -23,9 +23,9 @@
 
 ## Using Prop Data
 
-- [Conditionals]
-- [Dynamic styles]
-- [Rendering arrays with Map]
+- [Expressions](./using-prop-data.md#expressions)
+- [Conditionals](./using-prop-data.md#conditionals)
+- [Rendering arrays with Map](./using-prop-data.md#render-arrays)
 
 ## Events
 
