@@ -29,6 +29,6 @@
 
 ## Events
 
-- [Click Events]
-- [Non-click events]
-- [Events Object]
+- [Handling Events](./events.md#handling-events)
+- [Event List](./events.md#more-events)
+- [Events Object](./events.md#events-object)
