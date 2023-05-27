@@ -1,3 +1,5 @@
+These are my notes on the use of React for UI development. I'm still new to coding (41 days at the time of writing), so it's going to take some time before these notes are complete - and by then I'll assume there'll be breaking changes in React that will render some of this out of date or deprecated. Until then, though, feel free to make use of these notes if they help.
+
 # Contents
 
 ## Basics
