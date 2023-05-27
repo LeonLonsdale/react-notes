@@ -37,3 +37,7 @@
 
 - [State Intro](./state.md#intro-to-usestate)
 - [Working with State](./state.md#using-usestate)
+- [Initialiser Functions](./state.md#state-initialiser-functions)
+- [Re-rendering](./state.md#when-does-react-re-render)
+- [Objects and State](./state.md#react-and-objecs-with-state)
+- [Arrays and State]
