@@ -91,3 +91,29 @@ return (
 Here we use the update function syntax to create a new object rather than updating the existing object.
 
 ## React and Arrays with State
+
+### Adding items
+
+Arrays have the same problem as Objects - they're a reference to memory rather than the array itself.
+
+As such, we also need to create a new array and pass that into our setter function. Again this can use the spread syntax
+
+```js
+setArray((oldArray) => [...oldArray, 'new items']);
+```
+
+### Removing items
+
+The easiest way to remove items is to use the `Array.filter()` method. However, this best works using the Key prop id.
+
+This means that we'll need to implement a different way to call a function with `onClick` such that we can pass the key prop id in. We do this with a call back:
+
+```js
+onClick={() => handleClick(element.id)} // assumes a property called ID.
+```
+
+From here we can now use the filter method:
+
+```js
+const handleClick = (id) => setArray(oldArray => oldArray.filter((e) => e.id !=== id));
+```
