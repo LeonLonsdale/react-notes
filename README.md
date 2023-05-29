@@ -42,4 +42,4 @@ These are my notes on the use of React for UI development. I'm still new to codi
 - [Initialiser Functions](./state.md#state-initialiser-functions)
 - [Re-rendering](./state.md#when-does-react-re-render)
 - [Objects and State](./state.md#react-and-objecs-with-state)
-- [Arrays and State]
+- [Arrays and State](./state.md#react-and-arrays-with-state)
