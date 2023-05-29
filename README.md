@@ -43,3 +43,10 @@ These are my notes on the use of React for UI development. I'm still new to codi
 - [Re-rendering](./state.md#when-does-react-re-render)
 - [Objects and State](./state.md#react-and-objecs-with-state)
 - [Arrays and State](./state.md#react-and-arrays-with-state)
+
+## Component Design
+
+- [Component Design & Decomposition]
+- [State as Props]
+- [Functions as Props]
+- [Passing functions that update state]
