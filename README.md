@@ -48,5 +48,5 @@ These are my notes on the use of React for UI development. I'm still new to codi
 
 - [Component Design & Decomposition](./component-design.md#component-design)
 - [Functions as Props](./component-design.md#passing-functions-as-props)
-- [State as Props]
 - [Passing functions that update state]
+- [State as Props](./component-design.md#state-as-props)
