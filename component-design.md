@@ -8,3 +8,60 @@ We should attempt to decouple our logic from our presentation when designing our
 
 - `presentational` components - do not have state and are primarily focused on displaying something in the UI.
 - `logical` components - have state or some related logic, but are not specifically focused on UI.
+
+Additionally, aim to minimise the logic in components - where possible write utility / reusable functions.
+
+## Passing Functions as Props
+
+In JavaScript, functions are `first-class objects`, so we can pass them around. Passing functions as props allow us to make our app more configurable.
+
+We pass functions as props in the same way as any other prop, usually at the parent level so that the function can be passed down through children, while retaining access to them in the parent.
+
+Imagine a ToDo app in which we have a list of ToDo's and we want a button on each ToDo that allows the user to delete it. The component structure may look like this:
+
+```
+App > Main > ToDoList > ToDo
+```
+
+Here, our state could be either at Main or ToDoList, depending on how we want to re-render the display. In either case, our on click event is going to be on ToDo. So we want our click event on ToDo to update the State on ToDoList. Any click handler function written on ToDo is not going to have access to our state setter. In this instance, then we could pass a function as a prop.
+
+```js
+// ToDoList component (parent)
+
+const ToDos = [
+  // array of todos
+];
+
+const ToDoList = () => {
+  // create our state
+  const [todos, setTodos] = useState(ToDos);
+  // create our event handler function
+  const handleDelete = (id) => {
+    setTodos((oldTodos) => oldTodos.filter((t) => t.id !== id));
+  };
+  // return a todo component for each item in the state
+  // pass in a reference to the handle delete function as a prop.
+  return (
+    <div className="ToDos">
+      {todos.map((t) => (
+        <li>
+          <Todo key={t.id} todo={t} handleDelete={handleDelete} />
+        </li>
+      ))}
+    </div>
+  );
+};
+
+export default ToDoList;
+
+// ToDo component (child)
+
+const ToDo = ({todo, handleDelete}) => {
+  return (
+    // todo design
+    <button onClick={() => handleDelete(todo.id)}>Delete Todo</button>
+  );
+};
+```
+
+Now, with this example, the `handleDelete` function can be called onclick on the child element and pass in the ID. This then has access to update the state on the parent component.
