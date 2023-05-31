@@ -65,3 +65,35 @@ The quick fix is to use `htmlFor`:
 <label htmlFor="username">Enter username</label>
 <input type="text" id="username" placeholder="username" />
 ```
+
+## Forms with multiple inputs
+
+Where a form has multiple inputs, it can become a bit messy managing multiple states for all those inputs. It's therefore better to just have a single state which is an object containing a property for each input.
+
+Using this method, it becomes important for each input field to have a `name` property which should match corresponding the state object property name. This allows us to access and update the correct state property by accessing the event object `target.name` field.
+
+```js
+import {useState} from 'react';
+
+const UserSignupForm = () => {
+  const defaultState = {
+    firstName: '',
+    lastName: '',
+    username: '',
+    password: '',
+    email: '',
+  };
+
+  const [formData, setFormData] = useState(defaultState);
+
+  const handleChange = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    setFormData((oldData) => {...oldData, [field]: value})
+  }
+
+  return (
+    <input type="text" name="firstName" id="firstName" placeholder="First name" value={formData.firstName} onChange={handleChange}>
+  )
+};
+```

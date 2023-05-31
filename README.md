@@ -54,8 +54,6 @@ These are my notes on the use of React for UI development. I'm still new to codi
 
 - [Controlled Components](./forms.md#controlled-components)
 - [htmlFor Property](./forms.md#the-htmlfor-property)
-- [Working with multiple inputs]
-- [A better signup form]
-- [Computed Property Names in handleChange()]
+- [Working with multiple inputs](./forms.md#forms-with-multiple-inputs)
 - [Form validation from scratch]
 - [Validations using React Hook Form]
