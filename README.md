@@ -48,5 +48,14 @@ These are my notes on the use of React for UI development. I'm still new to codi
 
 - [Component Design & Decomposition](./component-design.md#component-design)
 - [Functions as Props](./component-design.md#passing-functions-as-props)
-- [Passing functions that update state]
 - [State as Props](./component-design.md#state-as-props)
+
+## Forms
+
+- [Controlled Components](./forms.md#controlled-components)
+- [htmlFor Property]
+- [Working with multiple inputs]
+- [A better signup form]
+- [Computed Property Names in handleChange()]
+- [Form validation from scratch]
+- [Validations using React Hook Form]
