@@ -47,3 +47,21 @@ What's happening here?
 4. This triggers a re-render of the `UsernameInput` component.
 
 For all intents and purposes, it will look as though the user is typing as normal in the input field, however, the field is being re-rendered on every keypress.
+
+## The htmlFor Property
+
+In the previous example, there is a small issue in that JSX does not recognise the `for` property when labelling forms.
+
+```html
+<label for="username">Enter username</label>
+<input type="text" id="username" placeholder="username" />
+```
+
+This is due to a similar issue as seen when attempting to use `class` to apply styles - `for` is a reserved keyword in JavaScript, used in `for loops`.
+
+The quick fix is to use `htmlFor`:
+
+```html
+<label htmlFor="username">Enter username</label>
+<input type="text" id="username" placeholder="username" />
+```

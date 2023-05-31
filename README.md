@@ -53,7 +53,7 @@ These are my notes on the use of React for UI development. I'm still new to codi
 ## Forms
 
 - [Controlled Components](./forms.md#controlled-components)
-- [htmlFor Property]
+- [htmlFor Property](./forms.md#the-htmlfor-property)
 - [Working with multiple inputs]
 - [A better signup form]
 - [Computed Property Names in handleChange()]
