@@ -97,3 +97,21 @@ const UserSignupForm = () => {
   )
 };
 ```
+
+## Form Validation
+
+With react, validating forms would either require a state for every input that can track whether or not the user input is valid. There then needs to be some logic that decides when to show an error message - on submit? or on change?
+
+With that decided, we need a function that performs the validation - but when? The state is not updated until the re-render and, of course, we can't then call the validation function after the re-render. Instead we need to pass in the current value of the field.
+
+None of this accounts for the different types of field in our form and the different validations each one might need.
+
+This can quickly become complicated and messy.
+
+A useful alternative to validation from scratch is using the library `React Hook Form`.
+
+```
+npm i react-hook-form
+```
+
+[Check the docs](https://react-hook-form.com/get-started)
