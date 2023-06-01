@@ -56,3 +56,7 @@ These are my notes on the use of React for UI development. I'm still new to codi
 - [htmlFor Property](./forms.md#the-htmlfor-property)
 - [Working with multiple inputs](./forms.md#forms-with-multiple-inputs)
 - [Form validation](./forms.md#form-validation)
+
+## Effects
+
+- [The useEffect Hook](./effects.md#the-useeffect-hook)
