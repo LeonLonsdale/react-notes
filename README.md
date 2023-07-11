@@ -60,3 +60,4 @@ These are my notes on the use of React for UI development. I'm still new to codi
 ## Effects
 
 - [The useEffect Hook](./effects.md#the-useeffect-hook)
+- [useEffect with API Data](./effects.md#fetching-data-from-an-api)
