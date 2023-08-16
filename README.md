@@ -61,3 +61,18 @@ These are my notes on the use of React for UI development. I'm still new to codi
 
 - [The useEffect Hook](./effects.md#the-useeffect-hook)
 - [useEffect with API Data](./effects.md#fetching-data-from-an-api)
+
+## How react works
+
+- [Components, Instances, and Elements](./how-react-works.md#components-instances-and-elements)
+  - [Components](./how-react-works.md#components)
+  - [Instances](./how-react-works.md#instances)
+  - [Elements](./how-react-works.md#elements)
+- [Rendering](./how-react-works.md#rendering)
+  - [Process](./how-react-works.md#process)
+  - [Triggering a Render](./how-react-works.md#triggering-a-render)
+  - [Render Phase](./how-react-works.md#render-phase)
+    - [Reconciling](./how-react-works.md#reconsiling)
+  - [Commit Phase](./how-react-works.md#commit-phase)
+  - [Recap](./how-react-works.md#recap)
+  - [Diffing](./how-react-works.md#diffing)
