@@ -68,7 +68,7 @@ We may want to display a random quote on the first render of the component, but 
 
 We may think that we can provide a function to useState to set an initial value, which we can in most situations, but `useState cannot accept async functions` - we'll be setting our state to a promise if we try this.
 
-To solve this we use `useEffect`. However, similar to useState, useEffect does not like async functions. To work around this we wrap our function in another function and then immediately invoke it.
+To solve this we use `useEffect`. However, similar to useState, useEffect does not like async functions. To work around this we wrap our asynchronous function in a synchronous function and then immediately invoke it.
 
 ```js
 import {useState, useEffect} from 'react';
@@ -77,3 +77,7 @@ const [quote, setQuote] = useState({text: '', author: ''});
 
 useEffect(() => fetchQuote(), []);
 ```
+
+This will, however, cause 2 renders to be performed. Once when the state is initialised and then again after the first useEffect execution. This can mean that on refresh, it will temporariliy display the previous quote and then load the new quote.
+
+To counter this, a loader component me be useful.
