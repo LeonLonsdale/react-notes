@@ -170,13 +170,14 @@ Some definitions first:
 Essentially, the Render & Commit doesn't start until all the states affected by the Event Handler have been completed. That is to say, if an Event Handler changes 3 states, each state is not updated one at a time and thus triggering 3 Render & Commits. They'll all be updated before triggering a single Render & Commit.
 
 This can have some unexpects consequences. Imagine:
+
 ```js
 const reset = () => {
   setName('');
-  console.log(name)
+  console.log(name);
   setEmail('');
   setPassword('');
-}
+};
 ```
 
 In the example above, since state is stored in the Fiber Tree during rendering, and at the time of the `console.log` call, the re-render has not yet taken place, the `name` state will still be the previous state and not the new state. This is called `stale state`. This is true even if a single state is being updated.
@@ -184,7 +185,20 @@ In the example above, since state is stored in the Fiber Tree during rendering, 
 This is the reason callbacks are used when setting state based on the current state:
 
 ```js
-setIsTrue(cur => !cur)
+setIsTrue((cur) => !cur);
 ```
 
 If automatic batches is an issue at any point, the state can be wrapped in `ReactDOM.flushSync()`.
+
+# Events
+
+## Event Propagation and Delegation in the DOM
+
+When an event happens, such as a click, it takes place at the root of the document and, during the `capturing phase` the event object travels down through each element until it reaches the `event target element`. We can then handle the event by putting a handler function on that target element. The event object then travels all the way back up to the root of the document in what is known as the `bubbling phase`.
+
+1. During capturing and bubbling phases, the event object goes through every single parent and child element one by one between the root and the target element.
+2. By default Event Handlers listen to events during the bubbling phase. This means that if we have a click event on both a button and its parent, clicking the button will trigger both event handlers. This can be stopped using the `stopPropagation()` method.
+
+This allows event delegation - put the event handler on a parent element, and check what the target was there. This prevents the need to have multiple copies of the same event handler on multiple child elements.
+
+React actually bundles all onClick (and onSubit, onChange etc) events into a single onClick event handler that handles them all, on the root DOM container node of the fiber tree. This means that React performs event delegation by default.

@@ -80,3 +80,4 @@ These are my notes on the use of React for UI development. I'm still new to codi
 - [Logic in React](./how-react-works.md#logic-in-react)
 - [Pure Components](./how-react-works.md#pure-components)
 - [State Update Batching](./how-react-works.md#state-update-batching)
+- [Events](./how-react-works.md#events)
