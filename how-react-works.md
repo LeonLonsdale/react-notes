@@ -115,7 +115,7 @@ The resulting DOM mutations are kept in a `list of effects` which will be used i
 
 - When the Browser identifies the DOM update, it initiates a Brwoser Paint phase where the changes are updated onscreen.
 
-## Diffing
+# Diffing
 
 _Assumptions_
 
@@ -132,3 +132,18 @@ _Assumptions_
    The key prop can be used in instances where this is not thte behaviour we're hoping for, and we want a new component instance with new state.
 
 2. Elements with a stable key prop stay the same across renders.
+
+## Key Prop
+
+- A special prop that we can use to tell the diffing algorithm that an element is unique.
+- Allows React to distinguish between multiple instances of the same component type.
+- When a key stays the same across renders, the element remains in the DOM, even if the position in the tree changes.
+- When a key changes between renders, the element will be destroyed and a new one created, even if the poision in the tree is the same as before.
+
+### Keys in Lists
+
+In a list with no keys, if a new item is added to the start of the list, the original items in the list will be the same but change position. With no stable key, these elements will be destroyed and rerendered by React. With a stable key, however, react knows that it doesn't have to rerender them, and keeps them in teh DOM.
+
+### Key prop to reset state.
+
+In some cases, the props provided to a component may change, but the component itself remains the same and in the same position. If the state is not changing then this will not be rerendered when the prop content changes - when the same element is in the same position, the state is preserved. We can therefore use a Key to let react know that something changed, so the state is reset.

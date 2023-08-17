@@ -75,4 +75,5 @@ These are my notes on the use of React for UI development. I'm still new to codi
     - [Reconciling](./how-react-works.md#reconsiling)
   - [Commit Phase](./how-react-works.md#commit-phase)
   - [Recap](./how-react-works.md#recap)
-  - [Diffing](./how-react-works.md#diffing)
+- [Diffing](./how-react-works.md#diffing)
+  - [Key Props](./how-react-works.md#key-prop)
