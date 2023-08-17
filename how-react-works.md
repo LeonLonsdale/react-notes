@@ -82,38 +82,16 @@ The resulting DOM mutations are kept in a `list of effects` which will be used i
 
 ## Recap
 
-**Triggering**
-
-- The process starts with a trigger. A trigger can be:
-  - The first load of the app; or
-  - A state change.
-- The trigger just triggers the Render Phase
-
-**Render Phase**
-
-- The Render Phase does not produce any visual output.
-- The Render Phase calls the component functions for component instances that need a re-render, to create new React Elements.
-  - This, in turn, calls all child component functions whether they need a re-render or not.
-- The new React Elements are used to create a Virtual DOM (A tree of react elements).
-
-**Reconciliation - Part of Render Phase**
-
-- The new Virtual DOM is then compared with the Existing Fiber Tree (which is a representation of the Virtual DOM before the re-render was called) to create an Updated Fiber tree which represents the current state of the elements. This process is called Reconciliation.
-- Reconciliation uses a diffing algorythm to identify the differences between the old and new Virtual DOMs.
-  - There is a Fiber in the Fiber tree for each react element and DOM element.
-    - The fiber holds the component state, props, and a queue of work.
-    - After diffing, the queue of works will contain the DOM updates that are needed for that element.
-- The Output of Reconciliation is an updated Fiber Tree and a list of effects (list of DOM updates).
-- This is all done Asynchronously and can be split, prioritised, paused and resumed.
-
-**Commit Phase**
-
-- The list of effects is them used in the Commit Phase, processed by ReactDOM and appled to the DOM one at a time.
-  - This is syncrhonous, and cannot be interrupted, to prevent partial UI display.
-
-**Browser Painting**
-
-- When the Browser identifies the DOM update, it initiates a Brwoser Paint phase where the changes are updated onscreen.
+1. The **Rendering Phase** is triggered either by initial load or a state change - not immediately, but scheduled for when the JS engine has time. setState calls in Event Handler Functions are also batched.
+2. The rendering phase calls component functions for instances that need to be re-rendered (including their children). This creates new react elements which are used to create a new **Virtual DOM**.
+3. The new Virtual DOM is then compared with the existing **Fiber Tree** in a process called **Reconciliation**.
+4. Reconciliation uses a diffing algorithm to compare the new Virtual DOM with the Fiber Tree to identify changes.
+5. Each react and DOM element has a **Fiber** in the Fiber Tree which holds the state, props, and a queue of work. Identified DOM updates for each element are stored in the **queue of work** during reconciliation.
+6. This process is asynchronous and can be paused, resumed, prioritised, and tasks can be split.
+7. The output of reconciliation is an updated Fiber Tree and a **List of Effects**.
+8. The list of effects is used in the **Commit Phase** by **ReactDOM** which looks at each effect one at a time, and applying the changes to the DOM`.
+9. This is done synchronously so cannot be interrupted, so that a consistent UI is possible.
+10. Once the this process completes, and the browser identifies the DOM changes, the browser re-paints the UI.
 
 # Diffing
 
@@ -147,3 +125,66 @@ In a list with no keys, if a new item is added to the start of the list, the ori
 ### Key prop to reset state.
 
 In some cases, the props provided to a component may change, but the component itself remains the same and in the same position. If the state is not changing then this will not be rerendered when the prop content changes - when the same element is in the same position, the state is preserved. We can therefore use a Key to let react know that something changed, so the state is reset.
+
+# Logic in React
+
+1. Render Logic
+2. Event Handler Functions
+
+## Render Logic
+
+- Code that lives in the top level of the componenet function
+- Participates in describing how the component view looks.
+- Executed every time the component renders
+
+Examples: state declarations, variable declarations, the return block.
+
+## Event Handler Functions
+
+- Pieces of code executed as a consequence of the event the handler is listening to.
+- Contain code that actually does something like update state, perform a HTTP request, read an input field, or navigate to a new page.
+
+Examples: Functions called onChange, onClick, onSubmit etc.,
+
+# Pure Components
+
+Some definitions first:
+
+- Side Effect: dependancy on modofication of any data outside the function scope. Example: mutating external variables, http requests, writing to DOM.
+
+- Pure Functions: Functions without side effects. The output is always the same given the same input.
+
+**Rules for Pure Components**
+
+1. Components must be pure in terms of render logic: Given teh same props, the component instance should always return the same JSX.
+2. **Render logic** must not produce any side effects.
+   - So no network requests / API calls
+   - No timers
+   - No direct work with the DOM
+   - No mutation of objects or variables outside of the function scope, including props.
+   - Do not update state (or refs).
+3. Do side effects in event handler functions. There is a hook for registering side effects (useEffect)
+
+# State Update Batching
+
+Essentially, the Render & Commit doesn't start until all the states affected by the Event Handler have been completed. That is to say, if an Event Handler changes 3 states, each state is not updated one at a time and thus triggering 3 Render & Commits. They'll all be updated before triggering a single Render & Commit.
+
+This can have some unexpects consequences. Imagine:
+```js
+const reset = () => {
+  setName('');
+  console.log(name)
+  setEmail('');
+  setPassword('');
+}
+```
+
+In the example above, since state is stored in the Fiber Tree during rendering, and at the time of the `console.log` call, the re-render has not yet taken place, the `name` state will still be the previous state and not the new state. This is called `stale state`. This is true even if a single state is being updated.
+
+This is the reason callbacks are used when setting state based on the current state:
+
+```js
+setIsTrue(cur => !cur)
+```
+
+If automatic batches is an issue at any point, the state can be wrapped in `ReactDOM.flushSync()`.

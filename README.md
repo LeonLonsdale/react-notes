@@ -77,3 +77,6 @@ These are my notes on the use of React for UI development. I'm still new to codi
   - [Recap](./how-react-works.md#recap)
 - [Diffing](./how-react-works.md#diffing)
   - [Key Props](./how-react-works.md#key-prop)
+- [Logic in React](./how-react-works.md#logic-in-react)
+- [Pure Components](./how-react-works.md#pure-components)
+- [State Update Batching](./how-react-works.md#state-update-batching)
