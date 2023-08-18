@@ -202,3 +202,19 @@ When an event happens, such as a click, it takes place at the root of the docume
 This allows event delegation - put the event handler on a parent element, and check what the target was there. This prevents the need to have multiple copies of the same event handler on multiple child elements.
 
 React actually bundles all onClick (and onSubit, onChange etc) events into a single onClick event handler that handles them all, on the root DOM container node of the fiber tree. This means that React performs event delegation by default.
+
+# Component Lifecycle
+
+1. Mounted / Initial render:
+   - Component instance is rendered for the first time.
+   - Has fresh state and props
+2. Re-renders whenever:
+   - State changes
+   - Props change
+   - Parent rerenders
+   - Context changes
+3. Unmountd / destroyed:
+   - Component destroyed and removed
+   - State and props also destroyed.
+
+We can hook into these phases to run code at specific points in time.
