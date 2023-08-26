@@ -2,53 +2,88 @@ These are my notes on the use of React for UI development. I'm still new to codi
 
 # Contents
 
-## Basics
+## React Introduction
 
-- [React Intro](./basics.md#intro-to-react)
-- [About JSX](./basics.md#intro-to-jsx)
-- [Basic App Structure](./basics.md#basic-react-structure)
+- ### Basics
 
-## JSX
+  - [React Intro](./basics.md#intro-to-react)
+  - [About JSX](./basics.md#intro-to-jsx)
+  - [Basic App Structure](./basics.md#basic-react-structure)
 
-- [JSX Rules](./jsx-in-detail.md#jsx-rules)
-- [Fragments](./jsx-in-detail.md#fragments)
-- [Evaluating Expressions](./jsx-in-detail.md#evaluating-js-expressions-in-jsx)
-- [Importing & Exporting Components](./jsx-in-detail.md#importing-and-exporting-components)
-- [Styling Components](./jsx-in-detail.md#styling-components)
+- ### JSX
+
+  - [JSX Rules](./jsx-in-detail.md#jsx-rules)
+  - [Fragments](./jsx-in-detail.md#fragments)
+  - [Evaluating Expressions](./jsx-in-detail.md#evaluating-js-expressions-in-jsx)
+  - [Importing & Exporting Components](./jsx-in-detail.md#importing-and-exporting-components)
+  - [Styling Components](./jsx-in-detail.md#styling-components)
+
+- ### How react works
+
+  - [Components, Instances, and Elements](./how-react-works.md#components-instances-and-elements)
+    - [Components](./how-react-works.md#components)
+    - [Instances](./how-react-works.md#instances)
+    - [Elements](./how-react-works.md#elements)
+  - [Rendering](./how-react-works.md#rendering)
+    - [Process](./how-react-works.md#process)
+    - [Triggering a Render](./how-react-works.md#triggering-a-render)
+    - [Render Phase](./how-react-works.md#render-phase)
+      - [Reconciling](./how-react-works.md#reconsiling)
+    - [Commit Phase](./how-react-works.md#commit-phase)
+    - [Recap](./how-react-works.md#recap)
+  - [Diffing](./how-react-works.md#diffing)
+    - [Key Props](./how-react-works.md#key-prop)
+  - [Logic in React](./how-react-works.md#logic-in-react)
+  - [Pure Components](./how-react-works.md#pure-components)
+  - [State Update Batching](./how-react-works.md#state-update-batching)
+  - [Events](./how-react-works.md#events)
+  - [Component Lifecycle](./how-react-works.md#component-lifecycle)
 
 ## Props
 
-- [Props Intro](./props.md#props-intro)
-- [Passing Props to Components](./props.md#passing-props-to-components)
-- [Setting Default Prop Values](./props.md#setting-a-default-value-for-a-prop)
-- [Key Prop](./props.md#the-key-prop)
+- ### Overview
 
-## Using Prop Data
+  - [Props Intro](./props.md#props-intro)
+  - [Passing Props to Components](./props.md#passing-props-to-components)
+  - [Setting Default Prop Values](./props.md#setting-a-default-value-for-a-prop)
+  - [Key Prop](./props.md#the-key-prop)
 
-- [Expressions](./using-prop-data.md#expressions)
-- [Conditionals](./using-prop-data.md#conditionals)
-- [Rendering arrays with Map](./using-prop-data.md#render-arrays)
+- ### Using Prop Data
 
-## Events
-
-- [Handling Events](./events.md#handling-events)
-- [Event List](./events.md#more-events)
-- [Events Object](./events.md#events-object)
-
-## State
-
-- [State Intro](./state.md#intro-to-usestate)
-- [Working with State](./state.md#using-usestate)
-- [Initialiser Functions](./state.md#state-initialiser-functions)
-- [Re-rendering](./state.md#when-does-react-re-render)
-- [Objects and State](./state.md#react-and-objecs-with-state)
-- [Arrays and State](./state.md#react-and-arrays-with-state)
+  - [Expressions](./using-prop-data.md#expressions)
+  - [Conditionals](./using-prop-data.md#conditionals)
+  - [Rendering arrays with Map](./using-prop-data.md#render-arrays)
 
 ## Component Design
 
 - [Component Design & Decomposition](./component-design.md#component-design)
 - [Functions as Props](./component-design.md#passing-functions-as-props)
 - [State as Props](./component-design.md#state-as-props)
+
+## Hooks
+
+- ### Overview
+
+  - [What are hooks?](./hooks.md#what-is-a-react-hook)
+  - [Built-in Hooks](./hooks.md#built-in-hooks)
+  - [Hook Rules](./hooks.md#rules-of-hooks)
+  - [Hook call order](./hooks.md#hook-call-order)
+
+- ### State
+
+  - [State Intro](./state.md#intro-to-usestate)
+  - [Working with State](./state.md#using-usestate)
+  - [Initialiser Functions](./state.md#state-initialiser-functions)
+  - [Re-rendering](./state.md#when-does-react-re-render)
+  - [Objects and State](./state.md#react-and-objecs-with-state)
+  - [Arrays and State](./state.md#react-and-arrays-with-state)
+
+- ### Effects
+
+  - [The useEffect Hook](./effects.md#the-useeffect-hook)
+  - [Fetching Data](./effects.md#fetching-data-from-an-api)
+  - [Cleanup](./effects.md#cleanup)
+  - [When are Effects executed?](./effects.md#when-are-effects-executed)
 
 ## Forms
 
@@ -57,30 +92,8 @@ These are my notes on the use of React for UI development. I'm still new to codi
 - [Working with multiple inputs](./forms.md#forms-with-multiple-inputs)
 - [Form validation](./forms.md#form-validation)
 
-## Effects
+## Events
 
-- [The useEffect Hook](./effects.md#the-useeffect-hook)
-- [Fetching Data](./effects.md#fetching-data-from-an-api)
-- [Cleanup](./effects.md#cleanup)
-- [When are Effects executed?](./effects.md#when-are-effects-executed)
-
-## How react works
-
-- [Components, Instances, and Elements](./how-react-works.md#components-instances-and-elements)
-  - [Components](./how-react-works.md#components)
-  - [Instances](./how-react-works.md#instances)
-  - [Elements](./how-react-works.md#elements)
-- [Rendering](./how-react-works.md#rendering)
-  - [Process](./how-react-works.md#process)
-  - [Triggering a Render](./how-react-works.md#triggering-a-render)
-  - [Render Phase](./how-react-works.md#render-phase)
-    - [Reconciling](./how-react-works.md#reconsiling)
-  - [Commit Phase](./how-react-works.md#commit-phase)
-  - [Recap](./how-react-works.md#recap)
-- [Diffing](./how-react-works.md#diffing)
-  - [Key Props](./how-react-works.md#key-prop)
-- [Logic in React](./how-react-works.md#logic-in-react)
-- [Pure Components](./how-react-works.md#pure-components)
-- [State Update Batching](./how-react-works.md#state-update-batching)
-- [Events](./how-react-works.md#events)
-- [Component Lifecycle](./how-react-works.md#component-lifecycle)
+- [Handling Events](./events.md#handling-events)
+- [Event List](./events.md#more-events)
+- [Events Object](./events.md#events-object)
