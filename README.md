@@ -84,6 +84,11 @@ These are my notes on the use of React for UI development. I'm still new to codi
   - [When are Effects executed?](./effects.md#when-are-effects-executed)
   - [Cancel HTTP Fetch Requests](./effects.md#cancel-a-http-fetch-request-with-cleanup)
 
+- ### Ref
+  - [Overview](./refs.md#overview)
+  - [Using useRef](./refs.md#using-refs)
+  - [Use Cases](./refs.md#use-cases)
+
 ## Forms
 
 - [Controlled Components](./forms.md#controlled-components)

@@ -165,31 +165,6 @@ Some definitions first:
    - Do not update state (or refs).
 3. Do side effects in event handler functions. There is a hook for registering side effects (useEffect)
 
-# State Update Batching
-
-Essentially, the Render & Commit doesn't start until all the states affected by the Event Handler have been completed. That is to say, if an Event Handler changes 3 states, each state is not updated one at a time and thus triggering 3 Render & Commits. They'll all be updated before triggering a single Render & Commit.
-
-This can have some unexpects consequences. Imagine:
-
-```js
-const reset = () => {
-  setName('');
-  console.log(name);
-  setEmail('');
-  setPassword('');
-};
-```
-
-In the example above, since state is stored in the Fiber Tree during rendering, and at the time of the `console.log` call, the re-render has not yet taken place, the `name` state will still be the previous state and not the new state. This is called `stale state`. This is true even if a single state is being updated.
-
-This is the reason callbacks are used when setting state based on the current state:
-
-```js
-setIsTrue((cur) => !cur);
-```
-
-If automatic batches is an issue at any point, the state can be wrapped in `ReactDOM.flushSync()`.
-
 # Events
 
 ## Event Propagation and Delegation in the DOM

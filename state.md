@@ -9,8 +9,6 @@
 import { useState } from "react";
 ```
 
-component. The hook accepts a value, and then returns an array containing that value and a function to change the value. Changing the value using this function prompts react to re-render the component. This allows us to have interactive modules.
-
 ## Initialising State
 
 - We can only declare our state within a component function or custom hook, and only at the top level.
@@ -93,75 +91,19 @@ setScores( (currentScores) => {...currentScores, [Team1]: currentScores[Team1] +
 setTodos( (currentTodos) => currentTodos.filter((todo) => todo.id !== id));
 ```
 
-When updating the state with our `set` function, we can either pass in the new state directly or with function. Where the new state is based on the previous state, we should use an `updater function` as seen below:
-
-```js
-setName("Steve");
-setAge((age) => age + 10); // this is called an updater function
-```
-
 ## When does react re-render?
 
-Put simply, react will only re-render a component where it identifies that the
-value of the state has changed, or if its parent is re-rendered. It won't therefore re-render unnecessarily just because the `set` function has been called by the value remains the same. When the set function is called, it prompts react to run a comparison against the current state and new state, and if they are both the same, it will not re-render. (see: [How React Works](./how-react-works.md#recap))
-
-It's additionally worth noting that when react does re-render, it does not reset the state back to the original value as you might expect, considering the entire component code is re-run. Instead react knows that it's a re-render and not first load, and so maintains the current state.
-
-## React and Objecs with State
-
-The comparison mentioned above causes a bit of a problem when our state is an object. It's going to try to see if the state has changed as normal, but our state is an object, and the object variable is a memory address, which does not change when we make changes to the content of the object - the object has not changed, only the content has.
-
-The way we handle this is to update the state to a completely new object in memory.
-
-```js
-
-const initScores = { p1Score: 0, p2Score: 0 };
-const [scores, setScores] = useState(initScores);
-const handleClick = (e) => {
-  const {id} = e.target;
-  setScores(oldScores => { ...oldScores, [id]: oldScores[id] + 1 })
-}
-return (
-  <button id="p1SCore" onClick={handleClick}>+1 P1 Score</button>
-  <button id="p2Score" onClick={handleClick}>+1 P2 Score</button>
-)
-```
-
-Here we use the update function syntax to create a new object rather than updating the existing object.
-
-## React and Arrays with State
-
-### Adding items
-
-Arrays have the same problem as Objects - they're a reference to memory rather than the array itself.
-
-As such, we also need to create a new array and pass that into our setter function. Again this can use the spread syntax
-
-```js
-setArray((oldArray) => [...oldArray, "new items"]);
-```
-
-### Removing items
-
-The easiest way to remove items is to use the `Array.filter()` method. However, this best works using the Key prop id.
-
-This means that we'll need to implement a different way to call a function with `onClick` such that we can pass the key prop id in. We do this with a call back:
-
-```js
-onClick={() => handleClick(element.id)} // assumes a property called ID.
-```
-
-From here we can now use the filter method:
-
-```js
-const handleClick = (id) => setArray(oldArray => oldArray.filter((e) => e.id !=== id));
-```
+- React only re-renders when it identifies that the state has changed.
+- This does not mean whenever the setter function is called, as it may be called to set to the same value, which would be an unnecessary re-render.
+- React will check whether the value has changed an requires a re-render during the rendering phase.
+  - see: [How React Works](./how-react-works.md#recap)
+- State is also not reset to it's original value on re-renders. The initial state is ignored on rerenders.
 
 ## State Batching & Callbacks
 
-Essentially, the Render & Commit doesn't start until the function or event that requests the change has completed operations - all state changes will be batched and completed at the same time at the end. That is to say, if an Event Handler changes 3 states, each state is not updated one at a time and thus triggering 3 Render & Commits. They'll all be updated before triggering a single Render & Commit.
-
-This can have some unexpects consequences. Imagine:
+- React does not perform the render phase until the functions that have called state changes have completed.
+- This results in batching state changes, so that a function changing 3 states does not trigger 3 re-renders - they will all be done at the same time. State values are not updated until render.
+- This can have some unexpects consequences. Imagine:
 
 ```js
 const reset = () => {
@@ -172,35 +114,15 @@ const reset = () => {
 };
 ```
 
-In the example above, since state is stored in the Fiber Tree during rendering, and at the time of the `console.log` call, the re-render has not yet taken place, the `name` state will still be the previous state and not the new state. This is called `stale state`. This is true even if a single state is being updated.
-
-This is the reason callbacks are used when setting state based on the current state:
+- Consider the example and remember that state is stored in the Fiber Tree during rendering
+- At the time of the `console.log` call, the re-render has not yet taken place, the `name` state will still be the previous state and not the new state.
+- This is called `stale state`.
+- This is true even if a single state is being updated.
+- This is the reason callbacks are used when setting state based on the current state:
 
 ```js
 setIsTrue((cur) => !cur);
 ```
 
-These callbacks, as with standard JS behaviour, are added to a callback queue to be actioned later. This means they're actioned after the function that called them, at which point the state has been updated.
-
-If automatic batches is an issue at any point, the state can be wrapped in `ReactDOM.flushSync()`.
-
-## Initialising State with Callbacks
-
-Whenever our initial state should be set to some value that may, for example, be held in a database, or even... localStorage, the best way to set this initial state is with callback function.
-
-This callback should not accept any arguments, and should return the value. We should never call a function when setting state, only pass the function in.
-
-```js
-// this is wrong. The function will be called on every render.
-const [state, setState] = useState(getInitialState());
-
-// this is wrong, the function should not accept arguments:
-const [state, setState] = useState((arguments) => {
-  // do stuff
-});
-
-// this is correct:
-const [state, setState] = useState(() => {
-  // do stuff
-});
-```
+- These callbacks, as with standard JS behaviour, are added to a callback queue to be actioned later. This means they're actioned after the function that called them, at which point the state has been updated.
+- If automatic batches is an issue at any point, the state can be wrapped in `ReactDOM.flushSync()`.
