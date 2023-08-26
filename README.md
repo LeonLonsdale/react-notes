@@ -35,7 +35,6 @@ These are my notes on the use of React for UI development. I'm still new to codi
     - [Key Props](./how-react-works.md#key-prop)
   - [Logic in React](./how-react-works.md#logic-in-react)
   - [Pure Components](./how-react-works.md#pure-components)
-  - [State Update Batching](./how-react-works.md#state-update-batching)
   - [Events](./how-react-works.md#events)
   - [Component Lifecycle](./how-react-works.md#component-lifecycle)
 
@@ -72,11 +71,10 @@ These are my notes on the use of React for UI development. I'm still new to codi
 - ### State
 
   - [State Intro](./state.md#intro-to-usestate)
-  - [Working with State](./state.md#using-usestate)
-  - [Initialiser Functions](./state.md#state-initialiser-functions)
-  - [Re-rendering](./state.md#when-does-react-re-render)
-  - [Objects and State](./state.md#react-and-objecs-with-state)
-  - [Arrays and State](./state.md#react-and-arrays-with-state)
+  - [Initialising State](./state.md#initialising-state)
+  - [Setting State](./state.md#setting-state)
+  - [When does react re-render?](./state.md#when-does-react-re-render)
+  - [State Batching & Callbacks](./how-react-works.md#state-update-batching)
 
 - ### Effects
 
