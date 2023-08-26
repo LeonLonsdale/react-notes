@@ -131,3 +131,26 @@ useEffect(() => {
 11. **`Effect`**
 12. Unmount
 13. **`Cleanup`**
+
+## How to
+
+### Cancel a HTTP Fetch request with Cleanup
+
+```js
+useEffect(
+  function () {
+    const controller = new AbortController(); // browser API
+
+    async function fetchStuff() {
+      const response = await fetch(url , { signal: controller.signal});
+      // handle fetech response data
+      // do stuff
+
+      // cleanup
+      function () {
+        return controller.abort()
+      }
+    }
+  }
+)
+```
