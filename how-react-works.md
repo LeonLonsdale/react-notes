@@ -218,3 +218,7 @@ React actually bundles all onClick (and onSubit, onChange etc) events into a sin
    - State and props also destroyed.
 
 We can hook into these phases to run code at specific points in time.
+
+# Event Handlers vs Effects
+
+LECTURE 144
