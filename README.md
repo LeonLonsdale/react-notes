@@ -85,9 +85,13 @@ These are my notes on the use of React for UI development. I'm still new to codi
   - [Cancel HTTP Fetch Requests](./effects.md#cancel-a-http-fetch-request-with-cleanup)
 
 - ### Ref
+
   - [Overview](./refs.md#overview)
   - [Using useRef](./refs.md#using-refs)
   - [Use Cases](./refs.md#use-cases)
+
+- ### Custom Hooks
+  - [About Custom Hooks](./hooks.md#about-custom-hooks)
 
 ## Forms
 

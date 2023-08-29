@@ -42,3 +42,29 @@
 - Within the linked list, each hook contains a reference to the next hook.
 - If a hook was conditionally called on the initial render, and therefore, included in the linked list, but the conditions are not met on subsequent renders, the linked list breaks.
 - It is done this way because Fibers are not recreated on every render, and so the list is also not recreated.
+
+## Custom Hooks
+
+### About Custom Hooks
+
+Custom hooks are all about `reusability` of logic that contains a react hook, or in other words, they allow us to reuse non-visual logic.
+
+A custom hook should have a single purpose, to make it reusable and portable - they may even be used across multiple projects.
+
+A custom hook name should start with `use`.
+
+```js
+const useFetch = (url) => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const goFetch = async () => {
+      const response = await fetch(url);
+      const data = await response.json();
+      setData(data);
+    };
+  }, []);
+
+  return [data];
+};
+```
