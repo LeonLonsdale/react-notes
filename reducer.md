@@ -1,5 +1,7 @@
 # The useReducer Hook
 
+## Using useReducer
+
 The useReducer hook is a more advanced way to manage state.
 
 As ever, the hook must be imported
