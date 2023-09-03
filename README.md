@@ -95,7 +95,10 @@ These are my notes on the use of React for UI development. I'm still new to codi
   - [About Custom Hooks](./hooks.md#about-custom-hooks)
 
 - ### Reducer
+  - [Overview](./reducer.md#overview)
   - [Using useReducer](./reducer.md#using-usereducer)
+  - [When to use](./reducer.md#deciding-when-to-use-usereducer)
+  - [Recap](./reducer.md#recap)
 
 ## Forms
 
