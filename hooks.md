@@ -9,6 +9,8 @@
 - All react hooks start with the word `use`
 - We can create our own custom hooks.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Built-in Hooks
 
 - useState
@@ -25,6 +27,8 @@
 - useImperativeHandle
 - useId
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Rules of Hooks
 
 1. Hooks can only be called at the top level.
@@ -35,6 +39,8 @@
 2. Hooks can only be called from React functions.
    - Only call hooks inside a function component or a custom hook.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Hook call order
 
 - On initial render, React creates a Fiber tree.
@@ -42,6 +48,8 @@
 - Within the linked list, each hook contains a reference to the next hook.
 - If a hook was conditionally called on the initial render, and therefore, included in the linked list, but the conditions are not met on subsequent renders, the linked list breaks.
 - It is done this way because Fibers are not recreated on every render, and so the list is also not recreated.
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## Custom Hooks
 
@@ -68,3 +76,5 @@ const useFetch = (url) => {
   return [data];
 };
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)

@@ -6,11 +6,15 @@
 - A javascript function that returns React elements (element tree), usually written as JSX.
 - A blueprint / template that can be reused in some cases.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Instances
 
 - An instance of a component is created each time we use the component.
 - An instance therefore is a virtual manifestation of the component.
 - Each instance can therefore hold its' own State and Props, as well as its own lifecycle.
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## Elements
 
@@ -21,9 +25,13 @@
 - The object contains all the information needed to create DOM elements for the component instance.
 - So react Elements are converted to DOM elements which are displayed on-screen by the browser.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Misc
 
 - Console logging a component shows us the instance. `console.log(<Component />);`.
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 # Rendering
 
@@ -36,6 +44,8 @@
 
 [1] In react, rendering is NOT updating the DOM or displaying elements on screen. Rendering is internal within React and does not produce visual changes.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Triggering a Render
 
 - 2 ways a render can be triggered:
@@ -44,6 +54,8 @@
 - Render process is triggered for the entire application, but the entire DOM is not updated as a result.
   - the process is not triggered immediately, but for when the JS engine has time to do it.
   - setState calls are batched into event handlers.
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## Render Phase
 
@@ -55,6 +67,8 @@
 - The new virtual DOM is then reconciled using Reacts reconciler `Fiber`, which produces a new Fiber tree.
 - The Fiber tree is used to write the new DOM.
 - The Render Phase is handled by `React`
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ### Reconsiling
 
@@ -72,6 +86,8 @@ Reconciliation works by working through the entire tree step by stype, analysing
 
 The resulting DOM mutations are kept in a `list of effects` which will be used in the commit phase to mutate the DOM.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Commit Phase
 
 - The `list of effect` is read and applies them one by one to the existing DOM tree.
@@ -79,6 +95,8 @@ The resulting DOM mutations are kept in a `list of effects` which will be used i
 - Once done, the workInProgress fiber tree becomes the current fiber tree for the next render cycle.
 - The browser then re-paints the screen with the updated DOM.
 - The Commit Phase is handled by `ReactDOM` and the Painting is handled by the browser.
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## Recap
 
@@ -92,6 +110,8 @@ The resulting DOM mutations are kept in a `list of effects` which will be used i
 8. The list of effects is used in the **Commit Phase** by **ReactDOM** which looks at each effect one at a time, and applying the changes to the DOM`.
 9. This is done synchronously so cannot be interrupted, so that a consistent UI is possible.
 10. Once the this process completes, and the browser identifies the DOM changes, the browser re-paints the UI.
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 # Diffing
 
@@ -111,6 +131,8 @@ _Assumptions_
 
 2. Elements with a stable key prop stay the same across renders.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Key Prop
 
 - A special prop that we can use to tell the diffing algorithm that an element is unique.
@@ -118,18 +140,26 @@ _Assumptions_
 - When a key stays the same across renders, the element remains in the DOM, even if the position in the tree changes.
 - When a key changes between renders, the element will be destroyed and a new one created, even if the poision in the tree is the same as before.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ### Keys in Lists
 
 In a list with no keys, if a new item is added to the start of the list, the original items in the list will be the same but change position. With no stable key, these elements will be destroyed and rerendered by React. With a stable key, however, react knows that it doesn't have to rerender them, and keeps them in teh DOM.
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ### Key prop to reset state.
 
 In some cases, the props provided to a component may change, but the component itself remains the same and in the same position. If the state is not changing then this will not be rerendered when the prop content changes - when the same element is in the same position, the state is preserved. We can therefore use a Key to let react know that something changed, so the state is reset.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 # Logic in React
 
 1. Render Logic
 2. Event Handler Functions
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## Render Logic
 
@@ -139,12 +169,16 @@ In some cases, the props provided to a component may change, but the component i
 
 Examples: state declarations, variable declarations, the return block.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Event Handler Functions
 
 - Pieces of code executed as a consequence of the event the handler is listening to.
 - Contain code that actually does something like update state, perform a HTTP request, read an input field, or navigate to a new page.
 
 Examples: Functions called onChange, onClick, onSubmit etc.,
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 # Pure Components
 
@@ -165,6 +199,8 @@ Some definitions first:
    - Do not update state (or refs).
 3. Do side effects in event handler functions. There is a hook for registering side effects (useEffect)
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 # Events
 
 ## Event Propagation and Delegation in the DOM
@@ -177,6 +213,8 @@ When an event happens, such as a click, it takes place at the root of the docume
 This allows event delegation - put the event handler on a parent element, and check what the target was there. This prevents the need to have multiple copies of the same event handler on multiple child elements.
 
 React actually bundles all onClick (and onSubit, onChange etc) events into a single onClick event handler that handles them all, on the root DOM container node of the fiber tree. This means that React performs event delegation by default.
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 # Component Lifecycle
 
@@ -193,6 +231,8 @@ React actually bundles all onClick (and onSubit, onChange etc) events into a sin
    - State and props also destroyed.
 
 We can hook into these phases to run code at specific points in time.
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 # Event Handlers vs Effects
 

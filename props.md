@@ -8,6 +8,8 @@ Components use these props to communicate with each other - every parent compone
 
 Using props we can pass any data to the component from HTML Attributes to javascript data
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Passing Props to Components
 
 We pass props to a component in a similar way to assigning attributes to HTML:
@@ -86,12 +88,18 @@ export default function PersonData({name, age, email}) {
 }
 ```
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Setting a Default Value for a Prop
 
 We do this in the same way as we would in JavaScript - we set the default value when deconstructing the prop object.
 
 ```jsx
-export default function PersonData({name = 'Joe Bloggs', age = 30, email = 'none provided'}) {
+export default function PersonData({
+  name = "Joe Bloggs",
+  age = 30,
+  email = "none provided",
+}) {
   return (
     <div>
       <p>Name: {name}</p>
@@ -101,6 +109,8 @@ export default function PersonData({name = 'Joe Bloggs', age = 30, email = 'none
   );
 }
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## The Key Prop
 
@@ -114,3 +124,5 @@ Whenever you iterate over data and render a list in React, React needs some way 
   <p>{item.price}</p>
 </li>
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)

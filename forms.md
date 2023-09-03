@@ -13,11 +13,11 @@ This does mean that each input in a form must have it's own state.
 For example, take a username field on a login form:
 
 ```js
-import {useState} from 'react';
+import { useState } from "react";
 
 function UsernameInput() {
   // create our state and set it to an empty string
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
   // onChange handler, gets input value from event object and update state
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -48,6 +48,8 @@ What's happening here?
 
 For all intents and purposes, it will look as though the user is typing as normal in the input field, however, the field is being re-rendered on every keypress.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## The htmlFor Property
 
 In the previous example, there is a small issue in that JSX does not recognise the `for` property when labelling forms.
@@ -65,6 +67,8 @@ The quick fix is to use `htmlFor`:
 <label htmlFor="username">Enter username</label>
 <input type="text" id="username" placeholder="username" />
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## Forms with multiple inputs
 
@@ -98,6 +102,8 @@ const UserSignupForm = () => {
 };
 ```
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Form Validation
 
 With react, validating forms would either require a state for every input that can track whether or not the user input is valid. There then needs to be some logic that decides when to show an error message - on submit? or on change?
@@ -115,3 +121,5 @@ npm i react-hook-form
 ```
 
 [Check the docs](https://react-hook-form.com/get-started)
+
+[Back to Contents](./README.md) - [Back to Top](#)

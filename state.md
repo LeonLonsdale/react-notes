@@ -9,6 +9,8 @@
 import { useState } from "react";
 ```
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Initialising State
 
 - We can only declare our state within a component function or custom hook, and only at the top level.
@@ -91,6 +93,8 @@ setScores( (currentScores) => {...currentScores, [Team1]: currentScores[Team1] +
 setTodos( (currentTodos) => currentTodos.filter((todo) => todo.id !== id));
 ```
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## When does react re-render?
 
 - React only re-renders when it identifies that the state has changed.
@@ -98,6 +102,8 @@ setTodos( (currentTodos) => currentTodos.filter((todo) => todo.id !== id));
 - React will check whether the value has changed an requires a re-render during the rendering phase.
   - see: [How React Works](./how-react-works.md#recap)
 - State is also not reset to it's original value on re-renders. The initial state is ignored on rerenders.
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## State Batching & Callbacks
 
@@ -126,3 +132,5 @@ setIsTrue((cur) => !cur);
 
 - These callbacks, as with standard JS behaviour, are added to a callback queue to be actioned later. This means they're actioned after the function that called them, at which point the state has been updated.
 - If automatic batches is an issue at any point, the state can be wrapped in `ReactDOM.flushSync()`.
+
+[Back to Contents](./README.md) - [Back to Top](#)

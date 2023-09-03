@@ -8,6 +8,8 @@ It is typically used where there are multiple pieces of state that are related t
 
 Differing from useState, with useReducer, we don't simply tell it what the new state is but we give it an `action` so that the reducer function can work out what the new state is, and which piece(s) of state are affected.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Using useReducer
 
 As ever, the hook must be imported
@@ -137,6 +139,8 @@ export default function App() {
 }
 ```
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Deciding when to use useReducer
 
 If the answer to any of the below are `yes`, we should probably use useReducer.
@@ -144,6 +148,8 @@ If the answer to any of the below are `yes`, we should probably use useReducer.
 1. Do we have more than one piece of state that frequently need to be updated together?
 2. Do we have complex state? - more than 3 or 4 pieces of related state.
 3. Do we have a lot of event handlers that are making the component large and confusing?
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## Recap
 
@@ -157,3 +163,5 @@ If the answer to any of the below are `yes`, we should probably use useReducer.
 8. The reducer function contains all the logic for updating the state, and decouples logic from components.
 9. The reducer is a pure function, with no side effects, and always returns a new state.
 10. The reducer function uses the action object to identify what the new state will be, and returns that state.
+
+[Back to Contents](./README.md) - [Back to Top](#)

@@ -18,11 +18,13 @@ With the event handler built, we simply tell the event to use that handler. We d
 ```jsx
 export default function EventHandler() {
   const handleClick = (e) => {
-    console.log('You clicked me!', {event});
+    console.log("You clicked me!", { event });
   };
   return <button onClick={handleClick}>Click Me</button>;
 }
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## More Events
 
@@ -32,11 +34,15 @@ export default function EventHandler() {
 - onCut
 - onPaste
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ### Composition
 
 - onCompositionEnd
 - onCompositionStart
 - onCompositionUpdate
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ### Keyboard Events
 
@@ -44,10 +50,14 @@ export default function EventHandler() {
 - onKeyPress
 - onKeyDOwn
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ### Focus Events
 
 - onFocus
 - onBlur
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ### Form Events
 
@@ -56,6 +66,8 @@ export default function EventHandler() {
 - onInvalid
 - onReset
 - onSubmit
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ### Mouse Events
 
@@ -78,6 +90,8 @@ export default function EventHandler() {
 - onMouseOver
 - onMouseUp
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ### Pointer Event
 
 - onPounterDown
@@ -88,6 +102,8 @@ export default function EventHandler() {
 - onLostPointerCapture
 - onPointerEnter
 - onPointerLeave
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## Events Object
 
@@ -102,3 +118,5 @@ export default function EventHandler() {
   return ()
 }
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)

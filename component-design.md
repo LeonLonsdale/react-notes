@@ -11,6 +11,8 @@ We should attempt to decouple our logic from our presentation when designing our
 
 Additionally, aim to minimise the logic in components - where possible write utility / reusable functions.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Passing Functions as Props
 
 In JavaScript, functions are `first-class objects`, so we can pass them around. Passing functions as props allow us to make our app more configurable.
@@ -56,7 +58,7 @@ export default ToDoList;
 
 // ToDo component (child)
 
-const ToDo = ({todo, handleDelete}) => {
+const ToDo = ({ todo, handleDelete }) => {
   return (
     // todo design
     <button onClick={() => handleDelete(todo.id)}>Delete Todo</button>
@@ -66,8 +68,12 @@ const ToDo = ({todo, handleDelete}) => {
 
 Now, with this example, the `handleDelete` function can be called onclick on the child element and pass in the ID. This then has access to update the state on the parent component.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## State as Props
 
 Sometimes we want a particular component to re-render on state change, so this is the component in which we want to declare our state. However, it's not always the component that is actually going to render the state data on screen. To achieve this goal, we declare our state and pass it as a proper down via child components until the state reaches the component that will display it.
 
 Note, however, that using this method means you cannot update the state from the rendering child component. State updates will still need to take place either in the parent component in which the state is declared, OR, in a child component that a state-updating function has been passed to.
+
+[Back to Contents](./README.md) - [Back to Top](#)

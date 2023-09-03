@@ -16,6 +16,8 @@
 import { useState, useEffect, useRef } from "react";
 ```
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Using Refs
 
 - We initialise a ref in a similar way to state, only we do not need to destructure an array into.
@@ -57,6 +59,8 @@ const SomeComponent = () => {
 };
 ```
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Use Cases
 
 - Storing DOM elements
@@ -83,3 +87,5 @@ export default function App() {
   );
 }
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)

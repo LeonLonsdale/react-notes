@@ -4,6 +4,8 @@
 
 Expressions are rendered simply using `{}` to be evaluated as JavaScript - see [Evaluating JS Expressions in JSX](./jsx-in-detail.md#evaluating-js-expressions-in-jsx)
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Conditionals
 
 The most efficient way to use conditionals with prop data is to use ternary operators.
@@ -56,14 +58,16 @@ And of course, styling
 ```jsx
 // display game results
 
-export default function GameResults({isWinner}) {
+export default function GameResults({ isWinner }) {
   return (
-    <div className={isWinner ? 'game-result__winner' : 'game-result__loser'}>
-      <p>You {isWinner ? 'Win!' : 'Lose 😩'}</p>
+    <div className={isWinner ? "game-result__winner" : "game-result__loser"}>
+      <p>You {isWinner ? "Win!" : "Lose 😩"}</p>
     </div>
   );
 }
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## Render Arrays
 
@@ -92,3 +96,5 @@ export default function Test() {
 
 // note: You still have to escape JSX using {} inside the map, even though the map itself is already escaped.
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)

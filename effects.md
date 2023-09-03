@@ -38,6 +38,8 @@ useEffect(myFunction, []); // runs only on the first render (on mount) and never
 
 In a way, this means useEffect is similar to an Event Listener, but in this case, the event it's listening for is a change to the state or prop provided to it within the `dependency array`. When the state or prop does change, React knows it needs to run the effect again.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 # Fetching data from an API
 
 The useEffect hook can be useful when fetching information from an API. We do not want to fetch this information on every render of the page.
@@ -88,6 +90,8 @@ This will, however, cause 2 renders to be performed. Once when the state is init
 
 To counter this, a loader component me be useful.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Cleanup
 
 Cleanup is a function (cleanup function) that we can optionally return from our effect. The cleanup function runs on 2 occasions:
@@ -116,6 +120,8 @@ useEffect(() => {
 });
 ```
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## When are Effects executed?
 
 1. Mount (initial Render)
@@ -131,6 +137,8 @@ useEffect(() => {
 11. **`Effect`**
 12. Unmount
 13. **`Cleanup`**
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## How to
 
@@ -154,3 +162,5 @@ useEffect(
   }
 )
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)
