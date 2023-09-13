@@ -112,3 +112,12 @@ These are my notes on the use of React for UI development. I'm still new to codi
 - [Handling Events](./events.md#handling-events)
 - [Event List](./events.md#more-events)
 - [Events Object](./events.md#events-object)
+
+# React Router
+
+- [Setup](./react-router.md#setup)
+- [Basic Use](./react-router.md#basic-use)
+- [Linking between Pages](./react-router.md#linking-between-pages)
+- [NavLink](./react-router.md#navlink)
+- [Nested Routing](./react-router.md#nested-routing)
+- [Index Route](./react-router.md#index-route)
