@@ -1,4 +1,4 @@
-These are my notes on the use of React for UI development. I'm still new to coding (41 days at the time of writing), so it's going to take some time before these notes are complete - and by then I'll assume there'll be breaking changes in React that will render some of this out of date or deprecated. Until then, though, feel free to make use of these notes if they help.
+These are my notes on the use of React for UI development. They have been taken whilst working through various courses on Udemy. They are in complete and should not be considered a replacement for official docs, but if they're helpful to anybody, feel free to star the repo.
 
 # Contents
 
