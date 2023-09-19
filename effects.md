@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 
 The useEffect hook needs to be used inside our component function at the top level, and accepts a callback function as an argument.
 
-useEffect is specifically for handling `Side Effects` that we want to run outside of an event handler - they used to keep a component synchronised with some external system. An effect should only do one thing - it should have a single purpose.
+useEffect is specifically for handling `Side Effects` that we want to run outside of an event handler - they're used to keep a component synchronised with some external system. An effect should only do one thing - it should have a single purpose.
 
 (Reminder: a side effect is when the function/component uses external code or performs any asynchronous processing. For example, fetching data from an API, or working with the DOM.)
 
