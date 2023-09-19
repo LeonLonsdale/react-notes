@@ -117,3 +117,76 @@ If our main route should always display one of the nested routes (for example on
   <Route path="todolist" element={<TodoList />} />
 </Route>
 ```
+
+## Storing State in the URL
+
+The URL is a great place to store UI state and an alternative to useState in some situations.
+
+Some benfits include:
+
+- You can share the URL with others, and they will render the same view. For exampel if you've selected the size and colour of a T-Shirt and want to share it with a friend.
+- You can bookmark the URL to return to it later without losing progress.
+- The state is available to all components without having to use prop drilling.
+- The data can easily be passed to the next page.
+
+We can store state in the URL using `params` and the `query string`
+
+```
+www.myapp.com/app/products/1381239216391?size=l&colour=black
+
+param = 1381239216391 // would be replaced with an actual username.
+query string = ?size=l&colour=black
+```
+
+We would need links set up that include the details we want to store/pass along:
+
+```html
+<Link to=`${productId}?size=${size}&colour=${colour}`> ... </Link>
+```
+
+### Params
+
+To achieve this, we first give our params an alias within a route:
+
+```html
+<Route path="products/:id" element="{...}" />
+<!-- :username here is the alias -->
+```
+
+We can then, in our component, access this alias by using the `useParams()` hook provided by React Router
+
+```js
+import { useParams } from "react-reouter-dom";
+
+const User = () => {
+  const params = useParams();
+  // params will be an object of all the params
+  // there can be multiple under different alias's in the route
+  // the object properties will take the name of the alias's provided
+  // { id: 1381239216391 }
+  // so this could be destructured from the start
+  // const { id } = useParams();
+};
+```
+
+### Query String
+
+React Router also provides us with a hook for the search query. This works similar to useState in the syntax. It gives us a variable and a function.
+
+The values aren not immediately accessible, so the variable we receive back comes with a get property that we use.
+
+```js
+import useSearchParams from "react-router-dom";
+
+const User = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const size = searchParams.get("size");
+  const colour = searchParams.get("colour");
+};
+```
+
+We can then change the search params with the function we now have available. For example, if the user wanted to take a look at a white T shirt instead of a black T shirt:
+
+```js
+onClick={() => setSearchParams({ size: 'l', colour: 'white' })};
+```

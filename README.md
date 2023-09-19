@@ -121,3 +121,4 @@ These are my notes on the use of React for UI development. I'm still new to codi
 - [NavLink](./react-router.md#navlink)
 - [Nested Routing](./react-router.md#nested-routing)
 - [Index Route](./react-router.md#index-route)
+- [Using URL for State](./react-router.md#storing-state-in-the-url)
