@@ -14,6 +14,8 @@ and then imported into the file it's going to be used in:
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 ```
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Basic Use
 
 The BrowserRouter, Routes, and Route component functions imported must all be used to tell React how to use our routes:
@@ -53,6 +55,8 @@ export default Homepage;
 
 It is convention to create a `pages` directory within the `src` directory to store these elements/pages in.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Linking Between Pages
 
 A simple anchor tag would trigger a new page request which is not what we want in a single page application. React Router provides us with a `Link` element to create links.
@@ -69,11 +73,15 @@ It can then be used to create a link. It accepts a `to` prop, which is the route
 <Link to='/store'>Store</Link>
 ```
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## NavLink
 
 React Router also provides us with a `NavLink` element. This is specifically for Navigation lists, and provides additional features such as applying an active class to the currently active page.
 
 It works in the same way as `Link`.
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## Nested Routing
 
@@ -106,6 +114,8 @@ import { Outlet } from "react-router-dom";
 
 Again, this is similar to using `{children}` as we would to display children props.
 
+[Back to Contents](./README.md) - [Back to Top](#)
+
 ## Index Route
 
 If our main route should always display one of the nested routes (for example on initial render, when it has no content of its own) we can use `index routes`. This is achieved simply by adding the `index` key word to the route.
@@ -117,6 +127,8 @@ If our main route should always display one of the nested routes (for example on
   <Route path="todolist" element={<TodoList />} />
 </Route>
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)
 
 ## Storing State in the URL
 
@@ -190,3 +202,5 @@ We can then change the search params with the function we now have available. Fo
 ```js
 onClick={() => setSearchParams({ size: 'l', colour: 'white' })};
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)
