@@ -204,3 +204,25 @@ onClick={() => setSearchParams({ size: 'l', colour: 'white' })};
 ```
 
 [Back to Contents](./README.md) - [Back to Top](#)
+
+## Programatic Navigation
+
+Sometimes we want certain actions to take the user to a specific route, but those actions may not necessarily involve clicking a link or a button - for exaple: form submission, clicking a location on a map.
+
+React Router provides us with `useNavigate()` for just this purpose. This returns a navigate function into which we pass the url parameter as an arguament.
+
+```js
+import { useNavigate } from "react-router-dom";
+
+const MyComponent = () => {
+  const navigate = useNavigate();
+  return <div onClick={() => navigate("param")}>// ...</div>;
+};
+```
+
+Additionally, we may occasionally want to include back or forward buttons. This is simply achieved by passing in the number of steps forward or backward we want the button to take us. Negative numbers for back, and positive numbers for forward.
+
+```js
+navigate(-1); // back 1
+navigate(1); // forward 1
+```

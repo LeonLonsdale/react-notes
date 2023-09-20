@@ -122,3 +122,4 @@ These are my notes on the use of React for UI development. They have been taken 
 - [Nested Routing](./react-router.md#nested-routing)
 - [Index Route](./react-router.md#index-route)
 - [Using URL for State](./react-router.md#storing-state-in-the-url)
+- [Programatic Navigation](./react-router.md#programatic-navigation)
