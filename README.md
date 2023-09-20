@@ -123,3 +123,5 @@ These are my notes on the use of React for UI development. They have been taken 
 - [Index Route](./react-router.md#index-route)
 - [Using URL for State](./react-router.md#storing-state-in-the-url)
 - [Programatic Navigation](./react-router.md#programatic-navigation)
+  - [useNavigate Hook](./react-router.md#imperative-with-the-usenavigate-hook)
+  - [Navigate component](./react-router.md#declarative-with-the-navigate--component)

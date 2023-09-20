@@ -207,6 +207,8 @@ onClick={() => setSearchParams({ size: 'l', colour: 'white' })};
 
 ## Programatic Navigation
 
+### Imperative with the `useNavigate()` Hook
+
 Sometimes we want certain actions to take the user to a specific route, but those actions may not necessarily involve clicking a link or a button - for exaple: form submission, clicking a location on a map.
 
 React Router provides us with `useNavigate()` for just this purpose. This returns a navigate function into which we pass the url parameter as an arguament.
@@ -226,3 +228,35 @@ Additionally, we may occasionally want to include back or forward buttons. This 
 navigate(-1); // back 1
 navigate(1); // forward 1
 ```
+
+[Back to Contents](./README.md) - [Back to Top](#)
+
+### Declarative with the `<Navigate />` component
+
+Whenever the hook cannot be properly used, we can use this more declarative option. This is particularly useful inside nested routes when using default index routes. In [Index Route](#index-route) we used the following example:
+
+```jsx
+<Route path="app" element={<App />}>
+  <Route index element={<TodoList />} />
+  <Route path="nested" element={<Nested />} />
+  <Route path="todolist" element={<TodoList />} />
+</Route>
+```
+
+In this example, loading `www.mydomain.com/app` will load the default index child route component `<TodoList />`. The address in the address bar, however, will not update to `app/todolist` it will still just be `/app`.
+
+To fix this we tell the index to use the `<Navigate />` component which, similar to Link and NavLink, accepts a `to` property.
+
+```jsx
+<Route index element={<Navigate to="todolist" />} />
+```
+
+This essentially then re-directs the browser to `app/todolist` and React Router will then follow any instructions we've provided as to how to handle that route.
+
+One issue with this is that once this re-direct has happened, we're unable to use the back button. So we add the `replace` keyword into the Navigate component.
+
+```jsx
+<Route index element={<Navigate replace to="todolist" />} />
+```
+
+[Back to Contents](./README.md) - [Back to Top](#)
