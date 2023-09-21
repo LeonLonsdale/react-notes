@@ -100,6 +100,11 @@ These are my notes on the use of React for UI development. They have been taken 
   - [When to use](./reducer.md#deciding-when-to-use-usereducer)
   - [Recap](./reducer.md#recap)
 
+## Context API
+
+- [About Context API](./context-api.md#about-the-context-api)
+- [Using Context API](./context-api.md#using-context-api)
+
 ## Forms
 
 - [Controlled Components](./forms.md#controlled-components)
