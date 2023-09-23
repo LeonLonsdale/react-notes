@@ -104,6 +104,7 @@ These are my notes on the use of React for UI development. They have been taken 
 
 - [About Context API](./context-api.md#about-the-context-api)
 - [Using Context API](./context-api.md#using-context-api)
+- [Custom Providers & Hooks](./context-api.md#custom-provider--hook)
 
 ## Forms
 

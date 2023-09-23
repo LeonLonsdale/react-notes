@@ -93,3 +93,52 @@ const TodoList = () => {
 ```
 
 [Back to Contents](./README.md) - [Back to Top](#)
+
+## Custom Provider & Hook
+
+We can go a step further and refactor our code, creating a custom provider in a separate file.
+
+This is achieved by movine all applicable state, event handlers, and effects, as well as context declarations into a new component.
+
+```js
+// new provider file TodosProvider.js
+import { useState, useContext } from 'react';
+
+const Context = useContext();
+
+function TodosProvider ({ children }) {
+  const [todos, setTodos] = useState();
+  const handleAddTodo = () => { ... }
+  const handleDeleteTodo = () => { ... }
+
+  return (
+    <Context.Provider value={{
+      todos,
+      onAddTodo: handleAddTodo,
+      onDeleteTodo: handleDeleteTodo
+    }}>
+    { chilren }
+    </Context.Provider>
+  )
+}
+
+export { Context, TodosProvider }
+
+// Original file now looks like:
+
+import { useContext, useState } from 'react';
+import { Context, TodosProvider } from 'TodosProvider.js';
+
+const App = () => {
+  const [todo, setTodo] = useState();
+  const [searchResults, setSearchResults] = useState();
+
+  return (
+    <TodosProvider>
+      <TodoList />
+      <NewTodoForm />
+    </TodosProvider>
+  )
+}
+
+```
