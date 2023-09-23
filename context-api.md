@@ -94,7 +94,7 @@ const TodoList = () => {
 
 [Back to Contents](./README.md) - [Back to Top](#)
 
-## Custom Provider & Hook
+## Custom Provider
 
 We can go a step further and refactor our code, creating a custom provider in a separate file.
 
@@ -104,7 +104,7 @@ This is achieved by movine all applicable state, event handlers, and effects, as
 // new provider file TodosProvider.js
 import { useState, useContext } from 'react';
 
-const Context = useContext();
+const TodosContext = useContext();
 
 function TodosProvider ({ children }) {
   const [todos, setTodos] = useState();
@@ -117,17 +117,17 @@ function TodosProvider ({ children }) {
       onAddTodo: handleAddTodo,
       onDeleteTodo: handleDeleteTodo
     }}>
-    { chilren }
+    { children }
     </Context.Provider>
   )
 }
 
-export { Context, TodosProvider }
+export { TodosContext, TodosProvider }
 
 // Original file now looks like:
 
 import { useContext, useState } from 'react';
-import { Context, TodosProvider } from 'TodosProvider.js';
+import { TodosContext, TodosProvider } from 'TodosProvider.js';
 
 const App = () => {
   const [todo, setTodo] = useState();
@@ -140,5 +140,56 @@ const App = () => {
     </TodosProvider>
   )
 }
+```
 
+## Custom Hook
+
+Currently, wherever the context is to be used, we must write `const { x, y, z} = useContext(TodosContext)`. In a large app, having to type this over and over again can be troublesome. Additionally, it's not always immediately clear which context it refers to.
+
+To overcome this, we can create our own custom hook.
+
+Our custom hook, should be kept in the same file as our context.
+
+```js
+// TodosProvider.js
+
+import { useState, useContext } from "react";
+
+const Context = useContext();
+
+function TodosProvider({ children }) {
+  // states and handlers
+
+  return (
+    <Context.Provider
+      value={{
+        todos,
+        onAddTodo: handleAddTodo,
+        onDeleteTodo: handleDeleteTodo,
+      }}
+    >
+      {children}
+    </Context.Provider>
+  );
+}
+
+function useTodos() {
+  const context = useContext(TodosContext);
+  return context;
+}
+
+// export useTodos now instead of TodosContext
+export { useTodos, TodosProvider };
+```
+
+We can now use
+
+```js
+const { x, y, z } = useTodos();
+```
+
+instead of
+
+```js
+const { x, y, z } = useContext(TodosContext);
 ```
