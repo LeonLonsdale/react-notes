@@ -132,3 +132,9 @@ These are my notes on the use of React for UI development. They have been taken 
 - [Programatic Navigation](./react-router.md#programatic-navigation)
   - [useNavigate Hook](./react-router.md#imperative-with-the-usenavigate-hook)
   - [Navigate component](./react-router.md#declarative-with-the-navigate--component)
+
+# Performance Optimisation
+
+- [Memoisation](./memoisation.md)
+  - [What is memoisation?](./memoisation.md#what-is-memoisation)
+  - [memo](./memoisation.md#memo)
