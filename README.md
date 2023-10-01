@@ -138,3 +138,4 @@ These are my notes on the use of React for UI development. They have been taken 
 - [Memoisation](./memoisation.md)
   - [What is memoisation?](./memoisation.md#what-is-memoisation)
   - [memo](./memoisation.md#memo)
+  - [useMemo & useCallback](./memoisation.md#usememo--usecallback)
