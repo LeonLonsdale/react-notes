@@ -107,6 +107,10 @@ These are my notes on the use of React for UI development. They have been taken 
 - [Custom Providers](./context-api.md#custom-provider)
 - [Custom Hook](./context-api.md#custom-hook)
 
+## Suspense API
+
+- [About Suspense API](./suspense.md#suspending-lazy-loaded-routes)
+
 ## Forms
 
 - [Controlled Components](./forms.md#controlled-components)
@@ -139,3 +143,4 @@ These are my notes on the use of React for UI development. They have been taken 
   - [What is memoisation?](./memoisation.md#what-is-memoisation)
   - [memo](./memoisation.md#memo)
   - [useMemo & useCallback](./memoisation.md#usememo--usecallback)
+  - [Lazy Loading Components](./codesplitting.md#overview)
