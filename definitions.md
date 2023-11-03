@@ -1,0 +1,2 @@
+- **`UI State`**: State that is not fetched from a server. It is about the UI itself and does not need to be communicated with an API.
+- **`Remote State`**: State that is fetched from a server.
