@@ -14,7 +14,7 @@ import { useState } from "react";
 ## Initialising State
 
 - We can only declare our state within a component function or custom hook, and only at the top level.
-- State should neve be declared within loops or conditions.
+- State should never be declared within loops or conditions.
 - The hook returns an array containing a state variable and a function to update that variable.
 - We can deconstruct this array on declaration.
 
