@@ -144,3 +144,15 @@ These are my notes on the use of React for UI development. They have been taken 
   - [memo](./memoisation.md#memo)
   - [useMemo & useCallback](./memoisation.md#usememo--usecallback)
   - [Lazy Loading Components](./codesplitting.md#overview)
+
+# Redux
+
+- [When should I use Redux?](./redux.md#when-should-we-use-redux)
+- [How does Redux work?](./redux.md#how-does-redux-work)
+- [Using Oldschool Redux](./redux.md#using-oldschool-redux)
+  - [InitialState](./redux.md#initial-state)
+  - [Reducer Functions](./redux.md#reducer-functions)
+  - [Create a Store](./redux.md#create-a-store)
+  - [Dispatch](./redux.md#dispatch)
+  - [Action Creators](./redux.md#action-creators)
+  - [Actions](./redux.md#actions)
