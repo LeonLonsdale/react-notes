@@ -63,8 +63,8 @@ We can use `useMemo` and `useCallback` to overcome this limitation.
 
 ## useMemo & useCallback
 
-- Use to memoise values (including objects and arrays)
-- Use to memoise functions
+- Use useMemo to memoise values (including objects and arrays)
+- Use useCallback to memoise functions
 - Values passed into useMemo and useCallback will be stored into memory and returned in subsequent re-renders, as long as the dependencies remain the same.
   - Dependancies are similar to the dependencies passed as an array into `useEffect`.
   - The value will be re-created only whenever one of these dependencies change.
